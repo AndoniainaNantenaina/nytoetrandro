@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titre de la page -->
+    <title>{% block title %}{% endblock %} - nyToetrandro</title>
+
+    <!-- MATERIALIZE : Compiled and minified CSS -->
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename = 'css/materialize.min.css')}}"  media="screen,projection"/>
+    <style>
+        .brand-b-color {
+            background-color: #45C2B7;
+        }
+        .dark-b-color {
+            background-color: #164E63;
+        }
+        .mid-b-color {
+            background-color: #BEC9DF;
+        }
+        .light-b-color {
+            background-color: #F8FAFC;
+        }
+
+        .brand-color {
+            color: #45C2B7;
+        }
+        .dark-color {
+            color: #164E63;
+        }
+        .mid-color {
+            color: #BEC9DF;
+        }
+        .light-color {
+            color: #F8FAFC;
+        }
+
+        .flexible {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        #menu-btn{
+            display: none;
+        }
+
+        @media only screen and (max-width: 1000px) {
+            #menu-btn {
+                display: block;
+            }
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de navigation -->
+    <div class="navbar-fixed">
+        <nav class="dark-b-color">
+            <div class="nav-wrapper">            
+                <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i id="menu-btn" class="fa-solid fa-bars"></i></a>
+                <a href="/" class="brand-logo">ny-Toetrandro</a>
+                <ul class="right hide-on-med-and-down">
+                    <li {% if feeds == True %}class="active"{% endif %}><a href="/feeds">Commentaires</a></li>
+                    <li {% if about == True %}class="active"{% endif %}><a href="/about">A propos</a></li>
+                    <li {% if credits == True %}class="active"{% endif %}><a href="/credits">Crédits</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <ul id="slide-out" class="sidenav">
+        <li {% if feeds == True %}class="active"{% endif %}><a href="/feeds">Commentaires</a></li>
+        <li {% if about == True %}class="active"{% endif %}><a href="/about">A propos</a></li>
+        <li {% if credits == True %}class="active"{% endif %}><a href="/credits">Crédits</a></li>
+    </ul>
+
+    <!-- Le corps de la page -->
+    {% block body %}{% endblock %}
+    
+    <!-- JQUERY -->
+    <script src="{{url_for('static', filename = 'js/jquery-3.6.0.min.js')}}"></script>
+    
+    <!-- MATERIALIZE : Compiled and minified JavaScript -->
+    <script type="text/javascript" src="{{url_for('static', filename = 'js/materialize.min.js')}}"></script>
+    
+    <!-- Lien vers le Kit fontawesome -->
+    <script src="https://kit.fontawesome.com/813f6700b7.js" crossorigin="anonymous"></script>
+
+    <!-- My personal javascript script -->
+    <script src="{{url_for('static', filename = 'js/my_script.js')}}"></script>
+</body>
+</html>

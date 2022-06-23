@@ -1,0 +1,21 @@
+<!-- Heritage de la page de base -->
+{% extends "base.html" %}
+
+<!-- Titre de la page -->
+{% block title %}
+    Error
+{% endblock %}
+
+<!-- Le corps de la page -->
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <h3>Impossible de prendre les données {{err_city}}</h3>
+    </div>
+    <div class="row">
+        <h4> Error message : {{err_msg}}</h4>
+    </div>
+</div>
+
+{% endblock %}

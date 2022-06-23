@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Crédits{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="header section center">
+            <div class="row">
+                <div class="card-panel grey lighten-5 hoverable">
+                    <div class="row valign-wrapper">
+                        <div class="col s2">
+                        <img src="{{ url_for("static", filename="images/profile_picture.jpg") }}" alt="" class="circle responsive-img">
+                        </div>
+                        <div class="col s8">
+                            <div class="row">
+                                <h6><b>ANDONIAINA NANTENAINA Nomenjanahary Joël André</b></h6>
+                            </div>
+                            <div class="row">
+                                <span class="black-text">Jeune étudiant en développement informatique</span>
+                            </div>
+                        </div>
+                        <div class="col s2">
+                            <a href="https://andoniainanantenaina.github.io/" class="waves-effect waves-light teal darken-4 btn pulse"><i class="fa-solid fa-user"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bas de page -->
+    <footer class="page-footer" style="background-color: #164E63;position: absolute;bottom:0;width: 100%;">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">ny-Toetrandro <i class="fa-solid fa-cloud"></i></h5>
+                    <p class="grey-text text-lighten-4">An web application that can serve you to check some weather data in city.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Contacts</h5>
+                    <ul>
+                    <li><a class="grey-text text-lighten-3" href="mailto:ando.andoniaina.nantenaina@esti.mg"><i class="fa-solid fa-envelope"></i> ando.andoniaina.nantenaina@esti.mg</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/nomenjanahary-andoniaina-45b44b179/"><i class="fa-brands fa-linkedin-in"></i> Andoniaina Nomenjanahary</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://www.github.com/AndoniainaNantenaina"><i class="fa-brands fa-github"></i> AndoniainaNantenaina</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2022 Copyright
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

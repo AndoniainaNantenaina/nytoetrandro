@@ -1,0 +1,50 @@
+<!-- Heritage de l'interface de base -->
+{% extends "base.html" %}
+
+<!-- Tout ce qui est dans la balise titre -->
+{% block title %}Acceuil{% endblock %}
+
+<!-- Le corps de l'interface -->
+{% block body %}
+<div class="container">
+    
+    <div class="header section center">
+        <h1>ny-Toetrandro <i class="fa-solid fa-cloud"></i></h1>
+        <form action="/city">
+            <div class="row">
+                <div class="input-field">
+                    <input name="query" id="city" type="text" class="validate">
+                    <label for="city">Ville</label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row flexible">
+
+        <!-- Itération sur la liste des villes préchargés -->
+        {% for city in cities %}
+            <!-- Itération sur les données -->
+            {% for d in data %}
+                <!-- Quand le nom de la ville est trouvé -->
+                {% if d['city_name'] == city %}
+                    <div class="card hoverable center">
+                        <div class="card-content white-text mid-b-color">
+                            <div class="row">
+                                <img src="http://openweathermap.org/img/wn/{{d['weather_icon']}}@2x.png" alt="weather icon">
+                            </div>
+                            <div class="row">
+                                <h1 class="brand-color"><b>{{d['main_tmp']}}°C</b></h1>
+                                <h4><a style="text-decoration: none;color: white;" href="/city?query={{city|e}}">{{ city|e }}</a></h4>
+                                <h6 class="dark-color">{{d['hour']}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+
+    </div>
+  
+</div>
+
+{% endblock %}

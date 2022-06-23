@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Feeds{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="header section center">
+        <div class="col-6">
+            <h4>Ecrivez ici vos commentaires</h4>
+            <div class="row">
+                <form action="/add_feeds" method="post">
+                    <input type="text" name="username" placeholder="Utilisateur" required>
+                    <input type="text" name="feed" placeholder="Votre commentaire" required>
+                    <input class="btn" type="submit" value="Envoyer">
+                </form>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <ul class="collection">
+                    
+                    {% for i in id %}
+                        <li class="collection-item avatar hoverable">
+                            <i class="circle red"><i class="fa-solid fa-user"></i></i>
+                            <span class="title"><b>{{flist[i]['username']}}</b></span>
+                            <p>{{flist[i]["commentaire"]}} <br>
+                                {{flist[i]["Date"]}}
+                            </p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
