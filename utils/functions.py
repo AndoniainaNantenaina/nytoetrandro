@@ -1,8 +1,7 @@
 from utils.firebase import firebase
 import os
 
-# FIREBASE_URL = os.environ.get('FIREBASE_URL')
-FIREBASE_URL = 'https://andoniaina-7ea28-default-rtdb.europe-west1.firebasedatabase.app/'
+FIREBASE_URL = os.environ.get('FIREBASE_URL')
 
 def create_connection():
 
