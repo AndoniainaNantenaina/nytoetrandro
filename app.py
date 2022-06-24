@@ -194,3 +194,27 @@ def add_feeds():
         return render_template('feeds.html', feeds=True, id=listID, flist=newCom)    
     else:
         return "Désolé, Impossible de rajouter votre commentaire."
+
+@app.route('/like/<id>', methods=['GET', 'POST'])
+def likefeed(id):
+
+    f = create_connection()
+
+    url = '/Commentaire/' + id
+
+    like = f.get(url + '/like', None)
+    date = f.get(url + '/Date', None)
+    username = f.get(url + '/username', None)
+    commentaire = f.get(url + '/commentaire', None)
+
+    res = {"Date" : date, "commentaire" : commentaire, "username" : username, "like" : like + 1}
+    
+    f.patch('/Commentaire/' + id, res)
+
+    commentaires = getAllFeeds()
+
+    listID = []
+    for c in commentaires:
+        listID.append(c)
+        
+    return render_template('feeds.html', feeds=True, id=listID, flist=commentaires)

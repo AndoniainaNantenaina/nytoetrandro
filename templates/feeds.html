@@ -24,18 +24,18 @@
             </div>
             <div class="col-6">
                 <div class="row">
-                    <ul class="collection">
-                        
-                        {% for i in id %}
-                        <li class="collection-item avatar hoverable">
-                            <i class="circle red"><i class="fa-solid fa-user"></i></i>
-                            <span class="title"><b>{{flist[i]['username']}}</b></span>
-                            <p>{{flist[i]["commentaire"]}} <br>
-                                {{flist[i]["Date"]}}
-                            </p>
-                        </li>
-                        {% endfor %}
-                    </ul>
+                    {% for i in id %}
+                    <form method="post" class="card blue-grey darken-1 hoverable">
+                        <div class="card-content white-text">
+                            <span class="card-title">{{flist[i]['username']}}</span>
+                            <p>{{flist[i]["commentaire"]}}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">{{flist[i]["Date"]}}</a>
+                            <a href="/like/{{i}}"><i class="fa-solid fa-thumbs-up"></i> {{flist[i]["like"]}}</a>
+                        </div>
+                    </form>
+                    {% endfor %}
                 </div>
             </div>
         </div>
