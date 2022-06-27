@@ -11,8 +11,7 @@ from weather.weather import Weather
 app = Flask(__name__)
 app.config["CACHE_TYPE"] = "null"
 
-# API_KEY = os.environ.get('API_KEY')
-API_KEY = '02b05c403c39ba3e609c14dec88decab'
+API_KEY = os.environ.get('API_KEY')
 
 def getDataFromApi(city):
 
