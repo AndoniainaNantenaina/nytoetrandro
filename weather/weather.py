@@ -1,5 +1,7 @@
 from datetime import datetime
+from threading import local
 import pytz
+import locale
 
 class Weather:
     def __init__(self, city_name, dt, main_tmp, main_tmp_min, main_tmp_max, weather_id, weather_main, weather_desc, weather_icon, timezone):
@@ -8,6 +10,7 @@ class Weather:
         self.city_name=city_name
 
         #   Date
+        locale.setlocale(locale.LC_TIME, "fr_FR")
         time_zone = pytz.FixedOffset(timezone / 60)
         self.dt = datetime.fromtimestamp(dt, time_zone).strftime("%a")
         self.hour = datetime.fromtimestamp(dt, time_zone).strftime("%H:%M")

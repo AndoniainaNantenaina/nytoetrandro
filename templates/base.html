@@ -54,6 +54,23 @@
             .card {
                 width: 100%;
             }
+            .myprofilecontent {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+            }
+            .row .col.s2.myprofile {
+                width: 16.6666666667%;
+                margin-left: 0;
+                left: auto;
+                right: auto;
+            }
+            .row .col.s8.myprofile {
+                width: 66.6666666667%;
+                margin-left: 0;
+                left: auto;
+                right: auto;
+            }
         }
     </style>
 </head>
@@ -64,7 +81,7 @@
         <nav class="dark-b-color">
             <div class="nav-wrapper">            
                 <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i id="menu-btn" class="fa-solid fa-bars"></i></a>
-                <a href="/" class="brand-logo">ny-Toetrandro</a>
+                <a href="/" class="brand-logo">Ny-Toetrandro</a>
                 <ul class="right hide-on-med-and-down">
                     <li {% if feeds == True %}class="active"{% endif %}><a href="/feeds">Commentaires<span class="new badge orange"></span></a></li>
                     <li {% if about == True %}class="active"{% endif %}><a href="/about">A propos</a></li>

@@ -11,12 +11,13 @@ from weather.weather import Weather
 app = Flask(__name__)
 app.config["CACHE_TYPE"] = "null"
 
-API_KEY = os.environ.get('API_KEY')
+# API_KEY = os.environ.get('API_KEY')
+API_KEY = '02b05c403c39ba3e609c14dec88decab'
 
 def getDataFromApi(city):
 
     # call API and convert response into Python dictionary
-    url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={API_KEY}'
+    url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={API_KEY}&lang=fr'
     response = requests.get(url).json()
 
     # error like unknown city name, inavalid api key
@@ -42,7 +43,7 @@ def getDataFromApi(city):
 
 def getForecastData(city):
     # call API and convert response into Python dictionary
-    url = f'http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={API_KEY}'
+    url = f'http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={API_KEY}&lang=fr'
     response = requests.get(url).json()
 
     cod = response.get('cod')
