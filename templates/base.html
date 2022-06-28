@@ -10,6 +10,8 @@
 
     <!-- MATERIALIZE : Compiled and minified CSS -->
     <link type="text/css" rel="stylesheet" href="{{url_for('static', filename = 'css/materialize.min.css')}}"  media="screen,projection"/>
+    {% block head %}
+    {% endblock %}
     <style>
         .brand-b-color {
             background-color: #45C2B7;
